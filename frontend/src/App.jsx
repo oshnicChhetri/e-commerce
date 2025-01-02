@@ -1,7 +1,8 @@
-import "./App.css"  ;
-import { Routes, Route, Navigate,useLocation } from "react-router-dom"
+import "./App.css";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom"
 import Navbar from "./components/navbar.jsx";
 import AdminNavbar from "./components/AdminNavbar.jsx"
+import AboutUs from "./components/AboutUs.jsx"
 import Home from "./pages/Home.jsx";
 import CategoryProduct from "./pages/CategoryProduct.jsx";
 import Signup from "./pages/Signup.jsx";
@@ -20,30 +21,33 @@ import { useState } from "react";
 
 function App() {
   const { authUser } = UseAuthContext();
-const location = useLocation();
+  const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
-   
+
   const [isCollapsed, setIsCollapsed] = useState(false);
 
- 
+
   return (
     <>
       <Toaster />
-    
+
       {isAdminRoute ? (
         <AdminNavbar />
       ) : (
-        <> 
+        <>
+
           <UserPage isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
-        <Navbar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
-          </>
+
+
+          <Navbar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        </>
       )}
-      
-      
+
+
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="category" element={<CategoryProduct/>}/>
+        <Route path="/category/:category" element={<CategoryProduct />} />
         <Route
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}
@@ -107,6 +111,7 @@ const location = useLocation();
           }
         />
       </Routes>
+      <AboutUs />
     </>
   );
 }

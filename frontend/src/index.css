@@ -1,22 +1,69 @@
-*{
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
+.signupLinkContainer {
+  margin-top: 1rem; /* Space above the link */
+  text-align: center; /* Center-align the text */
+}
+.signupLink {
+  color: #2b5ecc; /* Green color to match theme */
+  /* Remove underline */
+  /* Bold text */
+}
+
+.spinnerIcon {
+  margin: auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.message {
+  color: white;
+}
+body {
   position: relative;
   background-color: rgba(18, 87, 64, 0.912);
-overflow-x: hidden;
-
-  
+  overflow-x: hidden;
+}
+.footer {
+  background-color: rgba(243, 161, 18, 0.856); /* Light gray background */
+  padding: 1rem; /* Spacing around the content */
+  text-align: center; /* Center-align the text */
+  color: #333; /* Dark text color for readability */
+  font-family: "Arial", sans-serif; /* Clean, modern font */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 3rem;
 }
 
-.option{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.footer h1 {
+  font-size: 2rem; /* Large font size for the title */
+  margin-bottom: 1rem; /* Space below the title */
+  color: white; /* Green color for the title */
+}
+
+.footer p {
+  font-size: 1rem; /* Standard font size for the paragraph */
+  line-height: 1.6; /* Comfortable line spacing */
+  max-width: 600px; /* Limit the paragraph width */
+  margin: 0 auto; /* Center the paragraph */
+  color: white; /* Slightly muted text color */
+}
+
+.option {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 1rem;
 }
 
-
-.mainNav{
+.mainNav {
   width: 100%;
   min-width: 450px;
   background-color: rgba(243, 161, 18, 0.856);
@@ -27,62 +74,85 @@ overflow-x: hidden;
   height: 100px;
   padding-left: 100px;
   padding-right: 100px;
- 
 }
 
-.mainLogo{
+.mainLogo {
   height: 100%;
 }
-.mainLogoLink{
+.mainLogoLink {
   display: inline-block;
   height: 90%;
 }
 
-
-
-.iconContainer{
- 
+.iconContainer {
   width: 15%;
 
   display: flex;
   justify-content: center;
-align-items: center;
-justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-.cartIconContainer{
-  
-  
+.cartIconContainer {
   background-color: none;
 }
-.cartIcon{
+.cartIcon {
   font-size: 4.5rem;
- 
-  
 }
 
-.userIcon{
+.userIcon {
   font-size: 4rem;
- 
 }
 
+.searchBar {
+  display: flex;
+  align-items: center;
+  width: 40%; /* You can adjust this based on your design */
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 5px;
+}
 
+.searchInput {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
 
+.searchButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
 
+.searchIcon {
+  font-size: 1.5rem;
+  color: #666;
+}
 
-.formContainer{
-      /* background-color: rgba(255, 255, 255, 0.1); 
+.formContainer {
+  /* background-color: rgba(255, 255, 255, 0.1); 
   border: 1px solid rgba(255, 255, 255, 0.2); 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); 
   backdrop-filter: blur(10px);  */
 
-  background-color: rgba(31, 41, 55, 0.85); /* Retain the original color with slight transparency */
+  background-color: rgba(
+    31,
+    41,
+    55,
+    0.85
+  ); /* Retain the original color with slight transparency */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Deep shadow for depth */
   backdrop-filter: blur(10px); /* Glass-like blur effect */
   min-width: 420px;
   width: 60%;
   height: auto;
- padding: 20px;
+  padding: 20px;
 
   margin: auto;
   margin-top: 4rem;
@@ -91,50 +161,46 @@ justify-content: space-between;
   /* position: absolute;
   top: 70%;
   left: 20%; */
-  
- 
-
-
 }
-form{
-  padding-left:  20px;
+form {
+  padding-left: 20px;
 }
-label{
+label {
   display: block;
   color: white;
   margin-top: 2.5rem;
   margin-bottom: 5px;
   font-size: 1.2rem;
-
 }
-.formInput{
+.formInput {
   display: block;
   width: 90%;
-  
-      height: 2.5rem;
-      color:white;
-      font-size: 1rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-   /* padding-left: 2.5rem ;
+
+  height: 2.5rem;
+  color: white;
+  font-size: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  /* padding-left: 2.5rem ;
     padding-right: 0.75rem;
     padding-top: 0.5rem ;
     padding-bottom: 0.5rem; */
 
-     --tw-bg-opacity: 1;
-    background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
 
-     --tw-border-opacity: 1;
-    border-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
-     border-radius: 0.375rem;
-
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity, 1));
+  border-radius: 0.375rem;
 }
 
-input[type="file"]{
+input[type="file"] {
   display: block;
   width: 90%;
   height: 2.5rem;
-  background-color: rgb(55 65 81); /* Match the background color with the form inputs */
+  background-color: rgb(
+    55 65 81
+  ); /* Match the background color with the form inputs */
   color: white;
   font-size: 1rem;
   padding-left: 1.5rem;
@@ -146,15 +212,11 @@ input[type="file"]{
   cursor: pointer; /* Make it clear it's a clickable element */
 }
 
-
 textarea {
-  
   min-height: 100px; /* Ensuring the textarea has a good height */
 }
 
-
-
-.formH1{
+.formH1 {
   font-size: 2rem;
   color: white;
   text-align: center;
@@ -164,7 +226,9 @@ textarea {
   height: 2.5rem;
   width: 90%;
   margin-top: 2rem;
-  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1)); /* Dark gray background */
+  background-color: rgb(
+    55 65 81 / var(--tw-bg-opacity, 1)
+  ); /* Dark gray background */
   border: 2px solid rgb(0 0 0 / var(--tw-border-opacity, 1)); /* Subtle border */
   border-radius: 0.375rem; /* Rounded corners */
   color: white; /* Text color */
@@ -172,13 +236,15 @@ textarea {
   text-align: center; /* Center-align the text */
   cursor: pointer; /* Pointer cursor to indicate it's clickable */
   margin-bottom: 1rem;
- 
 }
 
-
-
-.userSidebar{
-    background-color: rgba(31, 41, 55, 0.923); /* Retain the original color with slight transparency */
+.userSidebar {
+  background-color: rgba(
+    31,
+    41,
+    55,
+    0.923
+  ); /* Retain the original color with slight transparency */
   border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for definition */
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Deep shadow for depth */
   backdrop-filter: blur(10px); /* Glass-like blur effect */
@@ -187,75 +253,70 @@ textarea {
   right: 0px;
   width: 10%;
   height: 100%;
-  
- padding: 20px;
- transition: right 0.5s ease-in-out;
- 
- 
+
+  padding: 20px;
+  display: block;
 }
-.userSidebarCollapsed{
-   background-color: rgba(31, 41, 55, 0.923); 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
+.userSidebarCollapsed {
+  background-color: rgba(31, 41, 55, 0.923);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   min-width: 300px;
   position: absolute;
-  right: calc(-100% - 20px);
+  display: none;
   width: 10%;
   height: 100vh;
- padding: 20px;
- transition: right 0.5s ease-in-out;
+  padding: 20px;
+  transition: right 0.5s ease-in-out;
 }
 
-.first2IconContainer{
+.first2IconContainer {
   display: flex;
   align-items: center;
 }
 
-.linkDiv{
+.linkDiv {
   width: 3rem;
- 
 }
 
-.linkDiv:first-child{
-   font-size: 3rem;
- color: rgba(95, 141, 215, 0.85);
+.linkDiv:first-child {
+  font-size: 3rem;
+  color: rgba(95, 141, 215, 0.85);
 }
 
 .adminContainer {
-  display: flex;                /* Use flexbox for alignment */
-  align-items: center;          /* Vertically center items */
-  justify-content: center;      /* Horizontally center items */
- background-color: rgba(95, 141, 215, 0.25);  /* Subtle background */
-  padding: 10px 20px;           /* Add padding around the content */
-  border-radius: 8px;   
-  border: 2px solid rgba(95, 141, 215, 0.5);        /* Rounded corners for the container */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Add soft shadow for depth */
-  max-width: 250px;             /* Max width of the container */
-  margin: 20px auto;            /* Centered horizontally with auto margin */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  background-color: rgba(95, 141, 215, 0.25); /* Subtle background */
+  padding: 10px 20px; /* Add padding around the content */
+  border-radius: 8px;
+  border: 2px solid rgba(95, 141, 215, 0.5); /* Rounded corners for the container */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Add soft shadow for depth */
+  max-width: 250px; /* Max width of the container */
+  margin: 20px auto; /* Centered horizontally with auto margin */
 }
 
 .adminIcon {
-  font-size: 2.5rem;            /* Icon size */
-  color: #ffba00;               /* Bright accent color */
-  margin-left: 10px;  
-  cursor: pointer;          /* Space between text and icon */
+  font-size: 2.5rem; /* Icon size */
+  color: #ffba00; /* Bright accent color */
+  margin-left: 10px;
+  cursor: pointer; /* Space between text and icon */
 }
 
 .adminContainer span {
-  font-size: 1.2rem;            /* Font size for the "Admin" text */
-  color: white;                 /* White text color for contrast */
-  font-weight: bold;  
-  cursor: pointer;          /* Bold text for emphasis */
+  font-size: 1.2rem; /* Font size for the "Admin" text */
+  color: white; /* White text color for contrast */
+  font-weight: bold;
+  cursor: pointer; /* Bold text for emphasis */
 }
-
 
 .userSidebarUL {
   list-style-type: none; /* Remove default list styling */
   padding: 1rem 0 1rem 1rem; /* Add padding around the list */
   margin-top: 3rem; /* Remove default margin */
-  
- 
+
   color: white; /* White text color */
   font-size: 1.1rem; /* Font size for the list items */
   font-weight: 400; /* Regular font weight */
@@ -263,7 +324,6 @@ textarea {
 .userSidebarItem {
   display: flex; /* Flexbox for better alignment */
 
-  
   padding: 12px 20px; /* Padding for button-like size */
   color: white; /* Text color */
   font-size: 1rem; /* Font size */
@@ -278,304 +338,413 @@ textarea {
   text-align: center; /* Center the text inside the item */
 }
 
-
-.logoutIcon{
+.logoutIcon {
   font-size: 3rem;
-color: rgba(95, 141, 215, 0.85);
-position: absolute;
-bottom: 2.5rem;
-
+  color: rgba(95, 141, 215, 0.85);
+  position: absolute;
+  bottom: 2.5rem;
 }
 
 .mainAdminNav {
-  width: 100%;
-  min-width: 450px;
- background-color: #2c3e50; /* Dark slate blue for a professional look */
+  width: 100%; /* Full width of the screen */
+  min-width: 450px; /* Ensures the navigation doesn't shrink too much */
+  background-color: #2c3e50; /* Dark slate blue for a professional look */
   border: 5px solid #46413e;
   display: flex;
-  justify-content: center;
-  justify-content: space-around;
+  justify-content: space-around; /* Evenly space nav items */
   align-items: center;
-  height: 100px;
-  
-
-
-
-
-
+  height: 15vh; /* Scales height dynamically based on viewport */
+  padding: 1rem; /* Padding for breathing space */
+  box-sizing: border-box; /* Includes padding and border in width/height */
 }
 
 .adminNavItems {
-  width: auto;
-  font-size: 1rem;
+  font-size: 1rem; /* Scales with rem (relative to root font size) */
   font-weight: bold;
-  text-transform: uppercase;
-  padding: 10px 20px;
+  text-transform: uppercase; /* Makes text uppercase */
+  padding: 0.5rem 1rem; /* Dynamic spacing for responsiveness */
   border: 2px solid #8f8b1f; /* Border for button-like structure */
   border-radius: 8px; /* Rounded corners */
-  background: linear-gradient(to bottom, #0fe777, #35cb10); /* Gradient for button */
+  background: linear-gradient(
+    to bottom,
+    #0fe777,
+    #35cb10
+  ); /* Gradient for button */
   color: #ffffff; /* White text for contrast */
   text-decoration: none; /* No underline */
-  
   cursor: pointer; /* Pointer cursor for interactivity */
+  flex-shrink: 0; /* Prevent buttons from shrinking too small */
 }
 
-.adminLogoutIcon{
-  font-size: 3rem;
+.adminLogoutIcon {
+  font-size: 2.5rem; /* Dynamically scales with rem */
+  flex-shrink: 0; /* Ensures it doesn't shrink with the container */
+  color: white;
 }
 
 .adminProductsContainer {
-  width: 90%;
-  height: auto;
+  width: 90%; /* Dynamically adjusts based on screen size */
   margin: auto;
-  padding: 5rem;
+  padding: 5rem 2rem; /* Reduced padding for smaller screens */
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem; /* Spacing between product items */
-  padding: 5rem;
   background-color: #1f2937; /* Dark background for the container */
   border-radius: 0.5rem;
+  box-sizing: border-box; /* Includes padding and border in width/height */
 }
 
 .adminProductItem {
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(55 65 81); /* Match the input background color */
-  border: 1px solid rgb(75 85 99); /* Matching border color */
+  flex-wrap: wrap; /* Allows wrapping of content on smaller screens */
+  background-color: rgb(
+    55,
+    65,
+    81
+  ); /* Dark background color for product item */
+  border: 1px solid rgb(75, 85, 99); /* Border to match background */
   border-radius: 0.375rem; /* Rounded corners */
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 1rem; /* Space between wrapped items */
+  box-sizing: border-box;
 }
 
 .productImage {
-  max-width: 50px;
+  max-width: 15%; /* Scales dynamically with the parent container */
   max-height: 50px;
-  border-radius: 5px; /* Slightly rounded corners */
-  margin-right: 1rem; /* Spacing from text */
+  border-radius: 5px; /* Rounded corners */
+  margin-right: 1rem; /* Space between image and text */
+  flex-shrink: 0; /* Prevents image from shrinking */
+  object-fit: contain; /* Ensures images fit within the container */
 }
 
 .productItem {
   background-color: rgb(75, 85, 99); /* Slightly lighter gray for box texture */
   color: white; /* Text color */
-  font-size: 1rem; 
+  font-size: 1rem;
   font-weight: bold;
-  width: auto;
-  padding: 0.5rem 2rem;/* Padding inside the box */
-  border-radius: 0.375rem; /* Rounded corners for box effect */
-  /* Subtle border for definition */
-  box-shadow: 0 2px  rgba(0, 0, 0, 0.1); 
-  margin: 0 0.5rem; /* Space between items */
- /* Allow the box to stretch within the layout */
+  flex: 1; /* Allows the item to grow and shrink as needed */
+  padding: 0.5rem 1rem; /* Reduced padding for better responsiveness */
+  border-radius: 0.375rem; /* Rounded corners */
+  box-shadow: 0 2px rgba(0, 0, 0, 0.1);
   text-align: center;
+  min-width: 120px; /* Ensures items don't shrink too small */
 }
 
-.productItem span {
+.price span,
+.stocks span,
+.category span {
   font-weight: bold;
-  margin-right: 0.5rem; /* Space between label and value */
+  margin-right: 0.5rem;
 }
 
-.adminProductLogosContainer{
+.price span {
+  color: red; /* Red for price to stand out */
+}
+
+.stocks span {
+  color: rgb(27, 216, 27); /* Green for available stock */
+}
+
+.adminCategory span {
+  color: rgb(192, 34, 34); /* Purple for category */
+}
+
+.adminProductLogosContainer {
   display: flex;
   gap: 1rem;
+  justify-content: flex-end; /* Align logos to the right */
+  flex: 1; /* Takes up remaining space */
 }
+
 .deleteLogo,
 .arrowLogo {
   font-size: 2rem;
   color: white;
   cursor: pointer;
+  flex-shrink: 0; /* Prevents icons from shrinking */
 }
-.categoriesContainer {
-  width: 80%;
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  height: auto;
-  background-color: red;
 
+.categoriesContainer {
+  width: 90%;
+  margin: 3rem auto;
   display: flex;
-  justify-content: space-between;
-  justify-content: flex-start;
-  gap: 3rem;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem; /* Consistent gap for compact layout */
 }
 
 .category {
-  width: 25%;
-  height: 20rem;
-  background-color: white;
+  width: calc(33.33% - 1.5rem); /* Default: Three categories per row */
+  height: auto; /* Let height adjust to content */
+  background-color: #fff;
+  border-radius: 12px; /* Rounded corners for card effect */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensure content stays within the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.category:hover {
+  transform: translateY(-5px); /* Lift card slightly on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 
 .categoryLink {
-  display: block; /* Make the link fill the category */
+  display: block; /* Make the link fill the entire card */
   width: 100%;
   height: 100%;
-  text-decoration: none; /* Remove default underline */
-  color: inherit; /* Inherit text color */
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Use inherited text color */
 }
 
 .categoryImageContainer {
   width: 100%;
-  height: 85%;
-  background-color: white;
+  height: 80%; /* Adjusted height for a better ratio */
+  background-color: #f4f4f4;
 }
 
 .categoryImage {
-  height: 80%; /* Ensure the image scales correctly */
-  margin: auto;
-  object-fit: cover; /* Prevent distortion */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Maintain aspect ratio */
 }
 
 .categoryNameContainer {
   width: 100%;
-  height: 15%;
+  height: 20%; /* Adjusted for more space */
   background-color: gray;
-  padding: 5px;
+  padding: 10px; /* Added inner padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .categoryName {
-  font-size: 100%;
+  font-size: 1.2rem; /* Larger and more readable font */
   font-weight: bold;
   text-align: center;
+  color: #000000; /* Neutral text color */
 }
 
-
-
-
-
-
-@media only screen and (max-width: 640px) {
-  .mainNav{
-  width: 100%;
-  min-width: 450px;
-  background-color: orange;
+.categoryProductContainer {
+  width: 90%;
+  margin: 3rem auto;
+  margin-bottom: 10rem;
   display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  padding-left: 0;
-  padding-right: 0;
- 
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem; /* Consistent spacing between cards */
 }
-.cartIcon{
-  margin: auto;
+
+.categoryProduct {
+  width: calc(33.33% - 1.5rem); /* Default: Three columns per row */
+  height: 25rem; /* Let height adjust to content */
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1), 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
-.cartIconContainer{
+.categoryProduct:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.categoryProductImageContainer {
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  background-color: orange;
-  z-index: 10;
+  height: 80%;
+  background-color: #f4f4f4;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
 }
 
+.categoryProductImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.categoryProductDetailContainer {
+  height: 20%;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.categoryProductTexts {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.categoryProdcutPrice {
+  color: #e74c3c;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.cartButtonContainer {
+  background-color: #ffc107;
+  width: 40%;
+  height: 3rem;
+  font-size: 3rem;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cartButtonContainer:hover {
+  background-color: #ffa000;
+}
+
+/* Media Queries for Responsiveness */
+
+@media only screen and (max-width: 768px) {
+  .mainNav {
+    width: 100%;
+    min-width: 450px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .cartIcon {
+    margin: auto;
+  }
+  .cartIconContainer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: orange;
+    z-index: 10;
+  }
+  .footer {
+    margin-bottom: 4.5rem;
+  }
 
   .formContainer {
-     width: 90%; /* Make the form container smaller on mobile */
-    max-width: 20rem;; /* Ensure the form container doesn't become too wide */
+    width: 90%; /* Make the form container smaller on mobile */
+    max-width: 20rem; /* Ensure the form container doesn't become too wide */
     margin: auto; /* Remove margins to allow for centering */
     padding: 20px;
     border-radius: 0.5rem;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Optional: add shadow for depth */
     backdrop-filter: blur(10px); /* Optional: frosted-glass effect */
     margin-top: 4rem;
-  margin-bottom: 12rem;
-  position: static;
+    margin-bottom: 12rem;
+    position: static;
   }
 
+  .userSidebar {
+    background-color: rgba(31, 41, 55, 0.923);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    min-width: 300px;
+    position: absolute;
+    right: 0px;
+    display: block;
+    width: 10%;
+    height: 100%;
+    padding: 20px;
+  }
 
-  .userSidebar{
-    background-color: rgba(31, 41, 55, 0.923); 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px); 
-  min-width: 300px;
-  position: absolute;
-  right: 0%;
-  width: 10%;
-  height: 100vh;
- padding: 20px;
- transition: right 1s ease-in-out;
-} 
+  .userSidebarCollapsed {
+    background-color: rgba(31, 41, 55, 0.923);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    min-width: 300px;
+    position: absolute;
+    display: none;
+    width: 10%;
+    height: 100vh;
+    padding: 20px;
+    transition: right 1s ease-in-out;
+  }
 
-.userSidebarCollapsed{
-   background-color: rgba(31, 41, 55, 0.923); 
-  border: 1px solid rgba(255, 255, 255, 0.2); 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
-  backdrop-filter: blur(10px);
-  min-width: 300px;
-  position: absolute;
-  right: calc(-100% - 20px);
-  width: 10%;
-  height: 100vh;
- padding: 20px;
- transition: right 1s ease-in-out;
+  .category {
+    width: calc(50% - 1rem); /* Two categories per row for tablets */
+  }
+
+  .categoryName {
+    font-size: 1rem; /* Adjusted font size */
+  }
+
+  .logoutIcon {
+    bottom: 4.5rem;
+  }
+
+  .categoryProduct {
+    width: calc(50% - 1rem); /* Two products per row */
+  }
+
+  .cartButtonContainer {
+    font-size: 2rem; /* Adjust button font size for smaller screens */
+  }
+
+  .categoryProductTexts {
+    font-size: 1rem; /* Adjust text size for better fit */
+  }
+
+  .categoryProdcutPrice {
+    font-size: 1rem; /* Adjust price text size */
+  }
 }
 
-.categoriesContainer{
+@media only screen and (max-width: 480px) {
+  .searchBar {
+    display: flex;
+    align-items: center;
+    width: 45%; /* You can adjust this based on your design */
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px;
+  }
+  .categoriesContainer {
+    gap: 1rem; /* Reduce gap for smaller screens */
+  }
 
-  width: 80%;
-  margin: auto;
-  margin-top: 3rem;
-  margin-bottom: 10rem;
-  height: auto;
-  background-color: red;
+  .category {
+    width: 100%; /* One category per row */
+  }
 
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
+  .categoryName {
+    font-size: 0.9rem; /* Further reduce font size for small screens */
+  }
+  .userSidebar {
+    background-color: rgba(31, 41, 55, 0.923);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    min-width: 300px;
+    position: absolute;
+    right: 0px;
+    display: block;
+    width: 10%;
+    height: 100%;
+    padding: 20px;
+  }
 }
-
-
-.logoutIcon{
-  bottom: 4.5rem;
-}
-
-.category{
-  width: 40%;
-  height: 15rem;
-  background-color: white;
- 
-}
-
-}
-
-@media only screen and (max-width: 500px){
-  .category{
-  width: 100%;
-  height: 20rem;
-  background-color: white;
- 
-}
-
-.categoryImageContainer{
-  width: 100%;
-  height: 85%;
-  background-color: white;
-}
-.categoryNameContainer{
-  width: 100%;
-  height: 15%;
- 
-
-  color: black;
-  background-color: gray;
-
-  padding: 5px;
-} 
-.categoryName{
-  font-size: 1.5rem;
-  font-weight: bold;
-    text-align: center;
-}
-}
-
-
-
-

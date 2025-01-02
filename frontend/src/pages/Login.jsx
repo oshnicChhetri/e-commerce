@@ -1,5 +1,5 @@
 import React from "react";
-
+import { FaSpinner } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import useLogin from "../hooks/useLogin.js";
@@ -46,9 +46,18 @@ const Login = () => {
         
 
 
-        <button type="submit" className="submitButton">
-          Login
-        </button>
+        
+          <button type="submit" className="submitButton" disabled={loading}>
+            {loading ? (
+              <FaSpinner className="spinnerIcon" />
+            ) : (
+              "Login"
+            )}
+          </button>
+        
+        <div className="signupLinkContainer">
+          <Link to="/signup" className="signupLink"><p>Don't have an account? Sign Up</p></Link>
+        </div>
       
 
     </form>

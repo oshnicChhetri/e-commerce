@@ -142,7 +142,11 @@ const AdminAddProduct = () => {
 
         {/* Submit Button */}
         <button type="submit" className="submitButton">
-          Add Product
+          {loading ? (
+            <FaSpinner className="spinnerIcon" />
+          ) : (
+            "Add Product"
+          )}
         </button>
       </form>
     </div>

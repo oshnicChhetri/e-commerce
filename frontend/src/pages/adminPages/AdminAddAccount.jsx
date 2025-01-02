@@ -17,7 +17,7 @@ const AdminAddAccount = () => {
         confirmPassword: "",
     })
 
-    const {loading, addAccount} = useAddAccount();
+    const {loading, addAccount} = useAddAccount()
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
@@ -77,7 +77,11 @@ const AdminAddAccount = () => {
 
 
               <button type="submit" className="submitButton">
-                  Add Account
+                  {loading ? (
+                                         <FaSpinner className="spinnerIcon" />
+                                       ) : (
+                                         "Add Account"
+                                       )}
               </button>
 
 

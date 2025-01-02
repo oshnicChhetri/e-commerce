@@ -1,36 +1,44 @@
-import { Link } from "react-router-dom";
+
+import  Category  from "../components/Category";
 
 const categories = [
-  { href: "/phones", name: "Phones", imageUrl: "./logo.png" },
-  { href: "/consoles", name: "Consoles", imageUrl: "./logo.png" },
-  { href: "/laptops", name: "Laptops", imageUrl: "./logo.png" },
-  { href: "/computers", name: "Computers", imageUrl: "./logo.png" },
-  { href: "/headphones", name: "Headphones", imageUrl: "./logo.png" },
-  { href: "/cameras", name: "Cameras", imageUrl: "./logo.png" },
-  { href: "/smartwatches", name: "Smartwatches", imageUrl: "./logo.png" },
-  { href: "/tablets", name: "Tablets", imageUrl: "./logo.png" },
+  { href: "/phones", name: "Phones", imageUrl: "./phone.jpg" },
+  { href: "/consoles", name: "Consoles", imageUrl: "./console.jpg" },
+  { href: "/laptops", name: "Laptops", imageUrl: "./laptop.jpg" },
+  { href: "/computers", name: "Computers", imageUrl: "./computer.jpg" },
+  { href: "/headphones", name: "Headphones", imageUrl: "./headphone.jpg" },
+  { href: "/cameras", name: "Cameras", imageUrl: "./camera.jpg" },
+  { href: "/smartwatches", name: "Smartwatches", imageUrl: "./smartwatch.jpg" },
+  { href: "/tablets", name: "Tablets", imageUrl: "./tablet.jpg" },
 ];
 
 const Home = () => {
+
+  
+
+  
   return (
     <div className="categoriesContainer">
-      {categories.map((category) => (
-        <div className="category" key={category.name}>
-          <Link to={`/category${category.href}`} className="categoryLink">
-            <div className="categoryImageContainer">
-              <img
-                className="categoryImage"
-                src={category.imageUrl}
-                alt={category.name}
-              />
-            </div>
-            <div className="categoryNameContainer">
-              <p className="categoryName">{category.name}</p>
-            </div>
-          </Link>
-        </div>
-      ))}
+   
+   
+      
+        {categories.map((category) => (
+
+          <Category key={category.name} category={category} />
+
+        ))}
+      
+     
+      
+
+    
+
+      
+      
+    
+
     </div>
+   
   );
 };
 

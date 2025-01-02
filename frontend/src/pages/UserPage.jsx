@@ -4,6 +4,7 @@ import { SiPhpmyadmin } from "react-icons/si";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { UseAuthContext } from '../../context/AuthContext.jsx';
 import  useLogout  from "../hooks/useLogout.js";
+import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
 const UserPage = ({ isCollapsed, setIsCollapsed }) => {
   const menuItems = [
@@ -15,7 +16,7 @@ const UserPage = ({ isCollapsed, setIsCollapsed }) => {
   const {loading, logout} = useLogout();
   const {authUser} = UseAuthContext();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async () => {
     // e.preventDefault();
     await logout();
   }
@@ -73,9 +74,16 @@ const UserPage = ({ isCollapsed, setIsCollapsed }) => {
           ))}
         </ul>
 
-          <Link to="/">
-        <RiLogoutBoxLine className="logoutIcon" onClick={handleSubmit} />
-          </Link>
+     
+        {loading ? (
+          <FaSpinner className="spinnerIcon" />
+        ) : (
+          <RiLogoutBoxLine className="logoutIcon" onClick={()=>{
+            handleSubmit();
+            setIsCollapsed(true);
+          }} />
+        )}
+      
       
     </div>
   );

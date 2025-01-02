@@ -1,9 +1,9 @@
 import React from "react";
 import { RiLogoutBoxLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import logo from "../../public/logo.png";
-// import { UseAuthContext } from '../../context/AuthContext';
-import { SiPhpmyadmin } from "react-icons/si";
+import useLogout from "../hooks/useLogout.js";
+import { FaSpinner } from "react-icons/fa";
+
 
 const AdminNavbar = () => {
   // const { authUser } = UseAuthContext();
@@ -14,10 +14,16 @@ const AdminNavbar = () => {
     { name: "Add Product", link: "admin/addProduct" },
     { name: "Add Account", link: "admin/addAccount" },
   ];
+  const { loading, logout } = useLogout();
+
+  const handleSubmit = async () => {
+    // e.preventDefault();
+    await logout();
+  }
   return (
     <nav className="mainAdminNav">
       <Link to="/" className=" mainLogoLink">
-        <img className="mainLogo" src={logo} alt="mainLogo" />
+        <img className="mainLogo" src="/logo.png" alt="mainLogo" />
       </Link>
 
       {menuItems.map((item, index) => (
@@ -29,8 +35,14 @@ const AdminNavbar = () => {
       ))}
 
       <Link to="/">
-        <RiLogoutBoxLine className="adminLogoutIcon" />
+        {loading ? (
+          <FaSpinner className="spinnerIcon" />
+        ) : (
+          <RiLogoutBoxLine className="adminLogoutIcon" onClick={handleSubmit} />
+        )}
       </Link>
+
+
     </nav>
   );
 };

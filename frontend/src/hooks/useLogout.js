@@ -30,6 +30,7 @@ const useLogout = () =>{
             toast.error(error.message);
         }finally{
             setLoading(false);
+            
         }
     }
 
