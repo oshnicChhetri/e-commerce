@@ -1,4 +1,4 @@
-import { min } from "moment";
+
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
@@ -48,12 +48,7 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-productSchema.pre("save", function (next) {
-  if (this.isModified("status")) {
-    this.statusDate = Date.now(); // Update statusDate to current date
-  }
-  next();
-});
+
 
 const Product = mongoose.model("Product", productSchema);
 export default Product;

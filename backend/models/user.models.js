@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema(
     userRole: {
       type: String,
       enum: ["customer", "admin"],
-      defaut: "customer",
+      default: "customer",
     },
 
     userPayPal: {

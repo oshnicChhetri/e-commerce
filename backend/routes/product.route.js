@@ -8,9 +8,9 @@ import { getProductsByCategory,addProduct,deleteProduct,getAllProducts } from ".
 const router = express.Router();
 
 router.get("/category/:category",getProductsByCategory);
-router.get("/admin/products", protectRoute, adminRoute, getAllProducts);
-router.post("/add/product",protectRoute,adminRoute, addProduct);
-router.delete("delete/:id", protectRoute,adminRoute, deleteProduct );
+router.get("/", protectRoute, adminRoute, getAllProducts);
+router.post("/",protectRoute,adminRoute, addProduct);
+router.delete("/:id", protectRoute,adminRoute, deleteProduct );
 
 
 export default router;
