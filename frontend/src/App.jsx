@@ -7,7 +7,7 @@ import Home from "./pages/Home.jsx";
 import CategoryProduct from "./pages/CategoryProduct.jsx";
 import Signup from "./pages/Signup.jsx";
 import Login from "./pages/Login.jsx";
-import UserPage from "./pages/UserPage.jsx";
+import UserSideBar from "./components/UserSideBar.jsx";
 import AdminHome from "./pages/adminPages/AdminHome.jsx"
 import AdminAddAccount from "./pages/adminPages/AdminAddAccount.jsx";
 import AdminAddProduct from "./pages/adminPages/AdminAddProduct.jsx";
@@ -16,6 +16,8 @@ import AdminOrders from "./pages/adminPages/AdminOrders.jsx";
 import { Toaster } from "react-hot-toast";
 import { UseAuthContext } from '../context/AuthContext.jsx';
 import { useState } from "react";
+import FullProductPage from "./pages/FullProductPage.jsx";
+import Cart from "./pages/Cart.jsx";
 
 
 
@@ -36,7 +38,7 @@ function App() {
       ) : (
         <>
 
-          <UserPage isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+          <UserSideBar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
 
 
           <Navbar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
@@ -48,6 +50,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category/:category" element={<CategoryProduct />} />
+        <Route path="/product/:id" element={<FullProductPage/>}/>
+        <Route path="/cart" element={<Cart/>} />
         <Route
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}

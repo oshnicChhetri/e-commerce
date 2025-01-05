@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import useAddProduct from "../../hooks/useAddProduct";
+import { FaSpinner } from "react-icons/fa";
 
 const categories = [
   "Phones",

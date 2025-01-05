@@ -2,14 +2,14 @@
 import  Category  from "../components/Category";
 
 const categories = [
-  { href: "/phones", name: "Phones", imageUrl: "./phone.jpg" },
-  { href: "/consoles", name: "Consoles", imageUrl: "./console.jpg" },
-  { href: "/laptops", name: "Laptops", imageUrl: "./laptop.jpg" },
-  { href: "/computers", name: "Computers", imageUrl: "./computer.jpg" },
-  { href: "/headphones", name: "Headphones", imageUrl: "./headphone.jpg" },
-  { href: "/cameras", name: "Cameras", imageUrl: "./camera.jpg" },
-  { href: "/smartwatches", name: "Smartwatches", imageUrl: "./smartwatch.jpg" },
-  { href: "/tablets", name: "Tablets", imageUrl: "./tablet.jpg" },
+  { href: "/Phones", name: "Phones", imageUrl: "./phone.jpg" },
+  { href: "/Consoles", name: "Consoles", imageUrl: "./console.jpg" },
+  { href: "/Laptops", name: "Laptops", imageUrl: "./laptop.jpg" },
+  { href: "/Computers", name: "Computers", imageUrl: "./computer.jpg" },
+  { href: "/Headphones", name: "Headphones", imageUrl: "./headphone.jpg" },
+  { href: "/Cameras", name: "Cameras", imageUrl: "./camera.jpg" },
+  { href: "/Smartwatches", name: "Smartwatches", imageUrl: "./smartwatch.jpg" },
+  { href: "/Tablets", name: "Tablets", imageUrl: "./tablet.jpg" },
 ];
 
 const Home = () => {

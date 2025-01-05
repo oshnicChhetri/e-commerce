@@ -6,7 +6,7 @@ import { UseAuthContext } from '../../context/AuthContext.jsx';
 import  useLogout  from "../hooks/useLogout.js";
 import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
-const UserPage = ({ isCollapsed, setIsCollapsed }) => {
+const UserSideBar = ({ isCollapsed, setIsCollapsed }) => {
   const menuItems = [
     { name: "User Details", link: "/user-details" },
     { name: "Change Password", link: "/change-password" },
@@ -28,13 +28,13 @@ const UserPage = ({ isCollapsed, setIsCollapsed }) => {
         
         <div className='first2IconContainer'>
         <div className='linkDiv'>
-          <Link to="/">
+          
 
             <IoIosArrowDroprightCircle
 
               onClick={() => setIsCollapsed(false)}
             />
-          </Link>
+         
         </div>
 
       {
@@ -89,4 +89,4 @@ const UserPage = ({ isCollapsed, setIsCollapsed }) => {
   );
 };
 
-export default UserPage;
+export default UserSideBar;

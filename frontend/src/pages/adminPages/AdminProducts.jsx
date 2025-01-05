@@ -1,6 +1,8 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import useGetAdminProducts from "../../hooks/useGetAdminProducts";
+import { FaSpinner } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AdminProducts = () => {
   const { loading, products } = useGetAdminProducts();
@@ -14,8 +16,8 @@ const AdminProducts = () => {
       {products.length === 0 ? (
         <div className="message">No products available</div>  
       ) : (
-        products.map((product, idx) => (
-          <div key={idx} className="adminProductItem">
+        products.map((product) => (
+          <div key={product._id} className="adminProductItem">
             <img className="productImage" src={product.image} alt="mainLogo" />
 
             <div className="productItem">{product.productName}</div>
@@ -37,7 +39,10 @@ const AdminProducts = () => {
 
             <div className="adminProductLogosContainer">
               <FaRegTrashAlt className="deleteLogo" />
-              <IoIosArrowDroprightCircle className="arrowLogo" />
+            <Link to={`/product/${product._id}`}> 
+            <IoIosArrowDroprightCircle className="arrowLogo" />
+            </Link>
+             
             </div>
           </div>
         ))

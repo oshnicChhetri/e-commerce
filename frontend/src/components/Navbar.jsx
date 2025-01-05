@@ -25,9 +25,12 @@ const Navbar = ({ setIsCollapsed }) => {
 
 
       <div className='iconContainer' >
+        <Link to="/cart">
         <div className='cartIconContainer'>
           <IoCartOutline className='cartIcon' />
         </div>
+        </Link>
+        
 
         <div>
           {

@@ -6,15 +6,30 @@ const useSignup = () => {
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = UseAuthContext();
 
-  const signup = async ({ fullName, userEmail, password, confirmPassword }) => {
-    const sucess = handleInputsErrors({
+  const signup = async ({
+    fullName,
+    userEmail,
+    password,
+    confirmPassword,
+    state,
+    city,
+    street,
+    houseNumber,
+    postalCode,
+  }) => {
+    const success = handleInputsErrors({
       fullName,
       userEmail,
       password,
       confirmPassword,
+      state,
+      city,
+      street,
+      houseNumber,
+      postalCode,
     });
 
-    if (!sucess) return;
+    if (!success) return;
     setLoading(true);
 
     try {
@@ -26,6 +41,11 @@ const useSignup = () => {
           userEmail,
           password,
           confirmPassword,
+          state,
+          city,
+          street,
+          houseNumber,
+          postalCode,
         }),
       });
       const data = await res.json();
@@ -35,6 +55,7 @@ const useSignup = () => {
 
       localStorage.setItem("eco-green-tech-user", JSON.stringify(data));
       setAuthUser(data);
+      toast.success("Signup successful!");
     } catch (error) {
       toast.error(error.message);
     } finally {
@@ -52,21 +73,36 @@ function handleInputsErrors({
   userEmail,
   password,
   confirmPassword,
+  state,
+  city,
+  street,
+  houseNumber,
+  postalCode,
 }) {
-  if (!fullName || !userEmail || !password || !confirmPassword) {
+  if (
+    !fullName ||
+    !userEmail ||
+    !password ||
+    !confirmPassword ||
+    !state ||
+    !city ||
+    !street ||
+    !houseNumber ||
+    !postalCode
+  ) {
     toast.error("Please fill in all the fields");
-    console.log("error");
     return false;
   }
   if (password !== confirmPassword) {
     toast.error("Passwords do not match");
-
     return false;
   }
   if (password.length < 6) {
-    toast.error("Password must have at least  6 characters");
+    toast.error("Password must have at least 6 characters");
     return false;
   }
-
+  
   return true;
 }
+
+
