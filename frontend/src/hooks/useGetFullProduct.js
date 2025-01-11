@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 const useGetFullProduct = (id) => {
-  const [loading, setLoading] = useState(false);
+  const [productloading, setProductLoading] = useState(false);
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const getProduct = async () => {
-      setLoading(true);
+      setProductLoading(true);
 
       try {
         const res = await fetch(`/api/products/product/${id}`);
@@ -20,14 +20,14 @@ const useGetFullProduct = (id) => {
       } catch (error) {
         toast.error(error.message);
       } finally {
-        setLoading(false);
+        setProductLoading(false);
       }
     };
 
     getProduct();
   }, [id]);
 
-  return { loading, product };
+  return { productloading, product };
 };
 
 export default useGetFullProduct;

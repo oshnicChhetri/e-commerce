@@ -18,6 +18,9 @@ import { UseAuthContext } from '../context/AuthContext.jsx';
 import { useState } from "react";
 import FullProductPage from "./pages/FullProductPage.jsx";
 import Cart from "./pages/Cart.jsx";
+import FilteredProduct from "./pages/FilteredProduct.jsx";
+import PurchaseSucess from "./pages/PurchaseSucess.jsx";
+import UserOrder from "./pages/UserOrder.jsx";
 
 
 
@@ -52,6 +55,10 @@ function App() {
         <Route path="/category/:category" element={<CategoryProduct />} />
         <Route path="/product/:id" element={<FullProductPage/>}/>
         <Route path="/cart" element={<Cart/>} />
+        <Route path="/purchase-sucess/" element={!authUser ? <Navigate to="/" /> : <PurchaseSucess/>}  />
+        <Route path="/purchase-cancel"  />
+        <Route path="/filteredProduct/:query" element={<FilteredProduct/>}/> 
+        <Route path="orders" element={!authUser ? <Navigate to ="/"/> : <UserOrder/>}/>
         <Route
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}

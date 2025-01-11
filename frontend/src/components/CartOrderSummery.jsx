@@ -1,25 +1,57 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import usePayment from "../hooks/usePayment";
 
-const CartOrderSummery = ({cartItems}) => {
+const CartOrderSummery = ({ cartItems, validatedCoupon }) => {
   const [totalAmount, setTotalAmount] = useState(0);
+  const [originalAmount, setOriginalAmount] = useState(0);
+
+  const { loading, payment } = usePayment();
+console.log(validatedCoupon);
+  const handlePayment = async () => {
+    await payment({ cartItems, validatedCoupon });
+  };
 
   useEffect(() => {
-    // Calculate totalAmount when cartItems change
-    const total = cartItems.reduce((amount, cartItem) => {
-      return amount + Math.round( cartItem.price * cartItem.quantity * 100) / 100; 
+    // Calculate the original total amount without any discount
+    const original = cartItems.reduce((amount, cartItem) => {
+      return amount + Math.round(cartItem.price * cartItem.quantity * 100) / 100;
     }, 0);
 
-    setTotalAmount(total); // Update state with the calculated total
-  }, [cartItems]);
-  return (
-      <div className="orderSummary">
-          
-          <p>Total Amount: <span className="totalAmount">{`£${totalAmount}`}</span></p>
-      <p>Original Amount: <span className="originalAmount">{`£${totalAmount}`}</span></p>
-          {/* <p>Discount: $5.00</p> */}
-          <button className="checkoutButton">Checkout</button>
-      </div>
-  )
-}
+    // Calculate the discount amount (if any) and apply it to the original amount
+    const discount = validatedCoupon?.discountPercentage || 0;
+    const discountedAmount = original - (original * (discount / 100));
 
-export default CartOrderSummery
+    // Set the state with the calculated values
+    setOriginalAmount(original);
+    setTotalAmount(discountedAmount);
+  }, [cartItems, validatedCoupon]); // Recalculate when cartItems or validatedCoupon changes
+
+  return (
+    <div className="orderSummary">
+      <p>
+        Total Amount: <span className="totalAmount">{`£${totalAmount.toFixed(2)}`}</span>
+      </p>
+      <p>
+        Original Amount: <span className="originalAmount">{`£${originalAmount.toFixed(2)}`}</span>
+      </p>
+      {
+        
+        validatedCoupon.discountPercentage && (
+          <>
+        
+           <hr />
+
+          <p>{validatedCoupon.discountPercentage}% discount applied</p>  
+          </>
+        )
+      }
+     
+    
+      <button onClick={handlePayment} className="checkoutButton">
+        Checkout
+      </button>
+    </div>
+  );
+};
+
+export default CartOrderSummery;

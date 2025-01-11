@@ -1,7 +1,6 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FiPlusCircle } from "react-icons/fi";
 import { FiMinusCircle } from "react-icons/fi";
-import { useState } from "react";
 
 
 const CartItem = ({cartItem, onQuantityChange,onDelete}) => {

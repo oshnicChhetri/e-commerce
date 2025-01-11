@@ -31,7 +31,13 @@ const useGetAdminProducts = () =>{
         getProducts();
     },[]);
 
-    return {loading,products}
+
+
+
+
+
+    return {loading,products,setProducts};
+
  }
 
 

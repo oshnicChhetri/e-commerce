@@ -7,7 +7,9 @@ import useCoupon from "../hooks/useCoupen.js";
 
 const Cart = () => {
   const { loading,cartItems, updateQuantity, deleteCartItem } = useCart();
-  const {couponloading, coupon} = useCoupon();
+  const {couponloading, coupon,validatedCoupon, validateCoupon} = useCoupon();
+  
+  
  
 
   return (
@@ -39,8 +41,8 @@ const Cart = () => {
 
       <div className="cartOrderAndCouponContainer">
         
-        <CartOrderSummary cartItems={cartItems} />
-        <CartCoupon cartItems={cartItems} couponloading={couponloading} coupon={coupon}/>
+        <CartOrderSummary cartItems={cartItems} validatedCoupon={validatedCoupon} />
+        <CartCoupon  couponloading={couponloading} coupon={coupon} validateCoupon={validateCoupon}/>
       </div>
     </div>
   );

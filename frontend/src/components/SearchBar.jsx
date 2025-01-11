@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
+import {  useNavigate } from 'react-router-dom';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('');
+    const navigate = useNavigate();
 
 
-    const handleChange = (event) => {
-        setQuery(event.target.value);
+    const handleChange = (e) => {
+        setQuery(e.target.value);
     };
 
-    // const handleSearch = (event) => {
-    //     event.preventDefault();
-    //     if (query.trim()) {
-    //         // Logic for search goes here, for example:
-
-    //         // You could also trigger a search function or redirect the user to a search page.
-    //     }
-    // };
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (query.trim()) {
+           navigate(`/filteredProduct/${query}`);
+        }
+      
+    };
 
     return (
-        <form className="searchBar" >
+        <form  onSubmit={handleSearch}className="searchBar" >
             <input
                 type="text"
                 className="searchInput"
@@ -28,7 +29,9 @@ const SearchBar = () => {
                 onChange={handleChange}
             />
             <button type="submit" className="searchButton">
+                
                 <IoSearchOutline className="searchIcon" />
+                
             </button>
         </form>
     );

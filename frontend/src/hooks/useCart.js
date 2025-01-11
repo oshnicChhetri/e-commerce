@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 const useCart = () => {
   const [loading, setLoading] = useState(true);
   const [cartItems, setCartItems] = useState([]);
+  
 
   // Only fetch cart data once when the component mounts
   useEffect(() => {
@@ -21,10 +22,9 @@ const useCart = () => {
     };
 
     getCart();
-  }, [cartItems]); // Empty array ensures this effect runs only once on mount
+  }, []); // Empty array ensures this effect runs only once on mount
 
   const updateQuantity = async (itemId, quantity) => {
-  
     try {
       const res = await fetch(`/api/cart/${itemId}`, {
         method: "PUT",
@@ -32,16 +32,26 @@ const useCart = () => {
         body: JSON.stringify({ quantity }),
       });
       const data = await res.json();
-      if (data.error) {
-        throw new Error(data.error);
+
+      if(data.error){
+        throw new Error(data.error)
       }
-      // Optionally update cartItems state after successful update
-      // setCartItems(updatedCartItems); // Uncomment if API returns updated cart data
+       
+      
+      setCartItems((prevItems) => {
+        return prevItems.map((item) => {
+          if (item._id === itemId) {
+            
+              return { ...item, quantity: quantity}
+             // Update the matched item
+          }
+          return item; // Return the original item for all others
+        });
+      });
     } catch (error) {
       toast.error(error.message); // Show error toast on failure
-    } 
+    }
   };
-
   const deleteCartItem = async (itemId) => {
     
     try {
@@ -51,8 +61,9 @@ const useCart = () => {
         throw new Error(data.error);
       } else {
         toast.success("Item removed successfully");
-        // Optionally update cartItems state after item deletion
-        // setCartItems(updatedCartItems); // Uncomment if API responds with updated cart data
+        setCartItems((prevItems)=>{
+          return prevItems.filter((item) => item._id !== itemId)
+        })
       }
     } catch (error) {
       toast.error(error.message); // Show error toast on failure

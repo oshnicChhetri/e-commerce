@@ -2,13 +2,25 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { IoCartOutline } from 'react-icons/io5';
 import useGetFullProduct from '../hooks/useGetFullProduct';
+import useAddToCart from "../hooks/useAddToCart";
+import { FaSpinner } from "react-icons/fa";
 
 const FullProductPage = () => {
     const { id } = useParams();
     
-    const { loading, product } = useGetFullProduct(id);
+    const { productloading, product } = useGetFullProduct(id);
+    const { loading, addToCart } = useAddToCart()
 
-    if (loading) {
+
+
+    const handleAddToCart = async (productId) => {
+
+        await addToCart({ productId })
+    }
+
+
+
+    if (productloading) {
         return <div className="message">Loading product...</div>;
     }
 
@@ -30,9 +42,18 @@ const FullProductPage = () => {
 
             <div className="fullProductPrice">{`${product.price || 0}£`}</div>
 
-            <div className="fullProductCartContainer">
-                <IoCartOutline className="fullProductIcon" />
-            </div>
+            
+                {
+                    loading ? (
+                        <FaSpinner className="spinnerIcon" />
+                    ) : (
+                        <div className="fullProductCartContainer" onClick={() => { handleAddToCart(product._id) }}>
+                        <IoCartOutline className='cartButton'  />
+                        </div>
+                    )
+
+                }
+           
         </div>
     );
 };
