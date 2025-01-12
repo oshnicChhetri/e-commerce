@@ -29,9 +29,9 @@ app.use("/api/payment", paymentRoutes);
 app.use("/api/coupon", couponRoutes);
 app.use("/api/order", orderRoutes);
 
-if(process.env.NODE_ENV === "production"){
+
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
-}
+
 
 
 app.listen(PORT, () => {
