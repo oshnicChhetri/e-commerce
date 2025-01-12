@@ -8,10 +8,6 @@
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "prod": "npm install --production && npm run build --prefix frontend", 
-    "client": "npm run build --prefix frontend", 
-    "deploy": "npm run build && npm run start", 
-    "heroku-postbuild": "npm run build --prefix frontend"  
   },
   "keywords": [],
   "author": "",
