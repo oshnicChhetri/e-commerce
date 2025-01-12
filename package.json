@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "server": "nodemon backend/server.js",
-  "start": "node backend/server.js",
-  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "server": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.4",
     "nodemon": "^3.1.9",
-    "stripe": "^17.5.0"
+    "stripe": "^8.0.0"
   }
 }
