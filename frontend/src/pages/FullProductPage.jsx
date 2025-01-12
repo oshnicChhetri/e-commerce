@@ -31,7 +31,7 @@ const FullProductPage = () => {
     return (
         <div className="fullProductContainer">
             <div className="fullProductImageContainer">
-                <img src={product.image || '/placeholder.jpg'} alt={product.name || 'Product'} />
+                <img src={product.image || '/placeholder.jpg'}  loading="lazy" alt={product.name || 'Product'} />
             </div>
 
             <h1 className="fullProductName">{product.productName}</h1>

@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema(
@@ -20,7 +19,7 @@ const productSchema = new mongoose.Schema(
 
     image: {
       type: String,
-    //   required: true,
+      //   required: true,
     },
     // publisher: {
     //   type: mongoose.Schema.Types.ObjectId,
@@ -36,19 +35,15 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
       min: 1,
-    }
+    },
 
     // isFeatured: {
     //     type: Boolean,
     //     default : false,
     // },
-    
-    
   },
   { timestamps: true }
 );
-
-
 
 const Product = mongoose.model("Product", productSchema);
 export default Product;

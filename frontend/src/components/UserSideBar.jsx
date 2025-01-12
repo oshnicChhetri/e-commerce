@@ -8,9 +8,10 @@ import { FaSpinner } from "react-icons/fa"; // Import spinner icon
 
 const UserSideBar = ({ isCollapsed, setIsCollapsed }) => {
   const menuItems = [
-    { name: "User Details", link: "/user-details" },
-    { name: "Change Password", link: "/change-password" },
+    { name: "User Details", link: "/userDetails" },
+    { name: "Change Password", link: "/changePassword" },
     { name: "Orders", link: "/orders" },
+    {name: "Customer Service : ecogreentech58@gmail.com"}
   ];
 
   const {loading, logout} = useLogout();
@@ -39,7 +40,7 @@ const UserSideBar = ({ isCollapsed, setIsCollapsed }) => {
 
       {
        authUser && authUser.userRole === "admin" && (
-        <Link to="/admin">
+        <Link to="/admin/products">
         
         
             <div className='adminContainer'>

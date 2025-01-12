@@ -14,7 +14,7 @@ const Product = ({ product }) => {
     <div key={product._id} className="categoryProduct">
       <Link to={`/product/${product._id}`} className="categoryLink">
         <div className="categoryProductImageContainer">
-          <img className="categoryProductImage" src={product.image} alt="" />
+          <img className="categoryProductImage" loading="lazy" src={product.image} alt={product.productName} />
         </div>
       </Link>
 

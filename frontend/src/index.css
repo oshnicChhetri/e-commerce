@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
 }
 
 .signupLinkContainer {
@@ -33,6 +32,11 @@ body {
   position: relative;
   background-color: rgba(18, 87, 64, 0.912);
   overflow-x: hidden;
+  
+  margin: 0;
+  padding: 0;
+   /* Prevent horizontal scrolling */
+
 }
 .footer {
   background-color: rgba(243, 161, 18, 0.856); /* Light background */
@@ -1043,7 +1047,7 @@ h2 {
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 4rem;
   padding: 2rem;
   border-radius: 0.5rem;
   background-color: #1f2937;
@@ -1334,12 +1338,308 @@ h2 {
 
 
 
+.userDetailsContainer {
+  width: 100%; /* Flexible width */
+  max-width: 80%; /* Limit maximum size */
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #1f2937; /* Dark background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-sizing: border-box;
+  color: white; /* Text color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.userDetails, .userAddress {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #374151; /* Darker container background */
+  padding: 1rem;
+  border: 1px solid #4b5563; /* Subtle border */
+  border-radius: 0.5rem;
+  width: 100%; /* Prevent horizontal overflow */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.userDetailsFullName, .userDetailsEmail, .userAddressDetial {
+  display: flex;
+  justify-content: space-between; /* Align label and value */
+  padding: 0.5rem 1rem;
+  background-color: #4b5563; /* Contrast background */
+  border-radius: 0.375rem;
+  overflow-wrap: break-word; /* Prevent content overflow */
+}
+
+.userDetailsFullName h1, .userDetailsEmail h1, .userAddressDetial h1 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0;
+  color: #d1d5db; /* Subtle gray for labels */
+}
+
+.userDetailsFullName span, .userDetailsEmail span, .userAddressDetial span {
+  font-size: 2rem;
+  color: #ffffff; /* Bright text for values */
+  font-weight: 500;
+}
+
+.userDetailsFullName span:empty,
+.userDetailsEmail span:empty,
+.userAddressDetial span:empty {
+  color: #9ca3af; /* Placeholder color */
+  font-style: italic;
+}
+
+/* Add hover effect for interaction */
+.userDetailsFullName, .userDetailsEmail, .userAddressDetial:hover {
+  background-color: #6b7280;
+}
+
+.editAddressBtn,
+.saveAddressBtn,
+.cancelEditBtn {
+  margin-top: 1rem;
+  padding: 10px 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.editAddressBtn {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+.editAddressBtn:hover {
+  background-color: #2563eb;
+}
+
+.saveAddressBtn {
+  background-color: #10b981;
+  color: white;
+}
+
+.saveAddressBtn:hover {
+  background-color: #059669;
+}
+
+.cancelEditBtn {
+  background-color: #ef4444;
+  color: white;
+  margin-left: 10px;
+}
+
+.cancelEditBtn:hover {
+  background-color: #dc2626;
+}
+
+.editAddressForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #374151;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.editAddressForm label {
+  font-size: 1.4rem;
+}
+
+.editAddressForm input {
+  font-size: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup label {
+  color: #d1d5db;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input {
+  padding: 8px;
+  border: 1px solid #6b7280;
+  border-radius: 0.375rem;
+  background-color: #4b5563;
+  color: white;
+}
 
 
+.changePasswordContainer {
+  width: 100%; /* Flexible width */
+  max-width: 80%; /* Limit maximum size */
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: #1f2937; /* Dark background */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-sizing: border-box;
+  color: white; /* Text color */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.changePasswordsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #374151; /* Darker container background */
+  padding: 1rem;
+  border: 1px solid #4b5563; /* Subtle border */
+  border-radius: 0.5rem;
+  width: 100%;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.changePasswordsContainer label {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #d1d5db; /* Subtle gray for labels */
+  margin-bottom: 0.5rem;
+}
+
+.changePasswordsContainer input {
+  font-size: 1.5rem;
+  padding: 10px;
+  border-radius: 0.375rem;
+  border: 1px solid #6b7280; /* Darker border */
+  background-color: #4b5563; /* Input background */
+  color: white;
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.changePasswordsContainer input:focus {
+  border-color: #1d4ed8; /* Highlight border on focus */
+  background-color: #6b7280; /* Lighter background on focus */
+}
+
+.changePasswordsContainer button {
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 1.6rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  background-color: #1d4ed8; /* Primary color */
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.changePasswordsContainer button:hover {
+  background-color: #2563eb; /* Lighter blue on hover */
+}
 
 
+.emailContainer {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1f2937;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+}
 
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
+.emailForm h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #d1d5db;
+}
+
+.emailTextarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.4rem;
+  border-radius: 5px;
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: white;
+  height: 150px;
+  resize: none;
+}
+
+.emailTextarea:focus {
+  outline: none;
+  border-color: #1d4ed8;
+  background-color: #6b7280;
+}
+
+.emailSubmitButton {
+  padding: 12px 20px;
+  background-color: #1d4ed8;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.emailSubmitButton:hover {
+  background-color: #2563eb;
+}
+
+.emailSubmitButton:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.statusMessage {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.statusMessage.success {
+  color: #10b981;
+}
+
+.statusMessage.error {
+  color: #ef4444;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #4b5563;
+  margin: 1.5rem 0;
+}
+
+h2 {
+  text-align: center;
+  color: #d1d5db;
+}
+
+a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 
 /* Media Queries for Responsiveness */
 
@@ -1540,6 +1840,52 @@ h2 {
   .orderProductDetails {
     grid-template-columns: repeat(2, 1fr); /* 2 products per row */
   }
+
+  .userDetailsContainer {
+    max-width: 95%; /* Allow container to take up more space on small devices */
+    padding: 1.5rem; /* Reduce padding for small devices */
+  }
+
+  .userDetailsFullName h1, .userDetailsEmail h1, .userAddressDetial h1 {
+    font-size: 1.4rem; /* Reduce font size */
+  }
+
+  .userDetailsFullName span, .userDetailsEmail span, .userAddressDetial span {
+    font-size: 1.5rem; /* Reduce font size */
+  }
+
+  .editAddressBtn, .saveAddressBtn, .cancelEditBtn {
+    width: 100%; /* Make buttons full width for better tap targets */
+    padding: 12px 0;
+    font-size: 1.3rem; /* Slightly smaller button text */
+  }
+
+  .editAddressForm input {
+    font-size: 1.4rem; /* Smaller input fields */
+  }
+
+  .editAddressForm label {
+    font-size: 1.2rem; /* Smaller label text */
+  }
+
+   .changePasswordContainer {
+    max-width: 90%; /* Allow the container to be more flexible on smaller screens */
+    padding: 1.5rem; /* Reduce padding for smaller screens */
+  }
+
+  .changePasswordsContainer label {
+    font-size: 1.2rem; /* Smaller font size for labels */
+  }
+
+  .changePasswordsContainer input {
+    font-size: 1.4rem; /* Smaller font size for input fields */
+    padding: 8px; /* Reduce padding in input fields */
+  }
+
+  .changePasswordsContainer button {
+    font-size: 1.4rem; /* Smaller font size for the button */
+    padding: 8px 12px; /* Reduce button padding */
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1629,5 +1975,49 @@ h2 {
     grid-template-columns: 1fr; /* Only 1 product per row */
   }
 
-  
+  .userDetailsContainer {
+    max-width: 95%; /* Take up more space */
+    padding: 1rem; /* Even smaller padding for mobile */
+  }
+
+  .userDetailsFullName h1, .userDetailsEmail h1, .userAddressDetial h1 {
+    font-size: 1.2rem; /* Further reduce font size */
+  }
+
+  .userDetailsFullName span, .userDetailsEmail span, .userAddressDetial span {
+    font-size: 1.3rem; /* Further reduce font size */
+  }
+
+  .editAddressBtn, .saveAddressBtn, .cancelEditBtn {
+    width: 100%; /* Ensure full-width buttons on small screens */
+    padding: 15px 0;
+    font-size: 1.4rem; /* Larger button text for small devices */
+  }
+
+  .editAddressForm input {
+    font-size: 1.4rem; /* Keep the font smaller on mobile */
+  }
+
+  .editAddressForm label {
+    font-size: 1.1rem; /* Adjust label text */
+  }
+
+    .changePasswordContainer {
+    max-width: 100%; /* Full width for very small screens */
+    padding: 1rem; /* Reduce padding further */
+  }
+
+  .changePasswordsContainer label {
+    font-size: 1.1rem; /* Smaller font size for labels */
+  }
+
+  .changePasswordsContainer input {
+    font-size: 1.3rem; /* Adjust input field font size */
+    padding: 6px; /* Smaller padding for input fields */
+  }
+
+  .changePasswordsContainer button {
+    font-size: 1.3rem; /* Adjust button font size */
+    padding: 6px 10px; /* Smaller padding for buttons */
+  }
 }

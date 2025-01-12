@@ -21,6 +21,9 @@ import Cart from "./pages/Cart.jsx";
 import FilteredProduct from "./pages/FilteredProduct.jsx";
 import PurchaseSucess from "./pages/PurchaseSucess.jsx";
 import UserOrder from "./pages/UserOrder.jsx";
+import UserDetails from "./pages/UserDetails.jsx";
+import ChangePassword from "./pages/ChangePassword.jsx";
+
 
 
 
@@ -58,7 +61,10 @@ function App() {
         <Route path="/purchase-sucess/" element={!authUser ? <Navigate to="/" /> : <PurchaseSucess/>}  />
         <Route path="/purchase-cancel"  />
         <Route path="/filteredProduct/:query" element={<FilteredProduct/>}/> 
-        <Route path="orders" element={!authUser ? <Navigate to ="/"/> : <UserOrder/>}/>
+        <Route path="/orders" element={!authUser ? <Navigate to ="/"/> : <UserOrder/>}/>
+        <Route  path = "/userDetails" element={!authUser ? <Navigate to ="/"/> : <UserDetails/>}/>
+        <Route path = "/changePassword" element={!authUser ? <Navigate to="/" /> : <ChangePassword/>}/>
+        
         <Route
           path="/signup"
           element={authUser ? <Navigate to="/" /> : <Signup />}

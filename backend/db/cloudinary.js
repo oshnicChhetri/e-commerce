@@ -1,4 +1,4 @@
-import {v2 as cloudinary} from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -12,4 +12,4 @@ cloudinary.config({
 // const storage = multer.memoryStorage(); // Store image in memory
 // const upload = multer({ storage: storage });
 
-export default cloudinary
+export default cloudinary;

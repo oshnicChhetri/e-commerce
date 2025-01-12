@@ -40,7 +40,7 @@ const Login = () => {
 
 
         <label htmlFor="password" >Password</label>
-        <input value={inputs.password} onChange={(e) => { setInputs({ ...inputs, password: e.target.value }) }} type="text" id="password" className="formInput" /> 
+        <input value={inputs.password} onChange={(e) => { setInputs({ ...inputs, password: e.target.value }) }} type="password" id="password" className="formInput" /> 
 
 
         

@@ -1,6 +1,9 @@
+import { json } from "express";
 import { stripe } from "../db/stripe.js";
 import Coupon from "../models/coupon.model.js";
 import Order from "../models/order.model.js";
+import Product from "../models/product.model.js";
+import User from "../models/user.models.js";
 
 export const createCheckoutSession = async (req, res) => {
   try {
@@ -19,7 +22,7 @@ export const createCheckoutSession = async (req, res) => {
         price_data: {
           currency: "gbp",
           product_data: {
-            name: product.name,
+            name: product.productName,
             images: [product.image],
           },
           unit_amount: amount,
@@ -57,7 +60,7 @@ export const createCheckoutSession = async (req, res) => {
           ]
         : [],
       metadata: {
-        userId: req.user_id.toString(),
+        userId: req.user._id.toString(),
         couponCode: couponCode || "",
         products: JSON.stringify(
           products.map((product) => ({
@@ -79,9 +82,6 @@ export const createCheckoutSession = async (req, res) => {
   }
 };
 
-
-
-
 async function createStripeCoupon(discountPercentage) {
   const coupon = await stripe.coupons.create({
     percent_off: discountPercentage,
@@ -90,9 +90,6 @@ async function createStripeCoupon(discountPercentage) {
 
   return coupon.id;
 }
-
-
-
 
 async function createCoupon(userId) {
   const newCoupon = new Coupon({
@@ -107,9 +104,6 @@ async function createCoupon(userId) {
   return newCoupon;
 }
 
-
-
-
 export const checkoutSucess = async (req, res) => {
   try {
     const { sessionId } = req.body;
@@ -118,9 +112,20 @@ export const checkoutSucess = async (req, res) => {
       return res.status(400).json({ error: "Session ID is required" });
     }
 
+    // Check if the order with this sessionId already exists
+    const existingOrder = await Order.findOne({ stripeSessionId: sessionId });
+
+    if (existingOrder) {
+      return res
+        .status(400)
+        .json({ error: "Order already created for this session." });
+    }
+
     const session = await stripe.checkout.sessions.retrieve(sessionId);
+    console.log("Session Metadata:", session.metadata); // For debugging
 
     if (session.payment_status === "paid") {
+      // Handle coupon deactivation if necessary
       if (session.metadata.couponCode) {
         await Coupon.findOneAndUpdate(
           {
@@ -133,7 +138,22 @@ export const checkoutSucess = async (req, res) => {
         );
       }
 
-      const products = JSON.parse(session.metadata.product);
+      // Safely parse products
+      let products = [];
+      try {
+        if (session.metadata.products) {
+          products = JSON.parse(session.metadata.products); // Parse stringified JSON
+        } else {
+          throw new Error("Product data is missing or invalid.");
+        }
+      } catch (error) {
+        console.error("Error parsing products:", error.message);
+        return res
+          .status(400)
+          .json({ error: "Invalid or missing product data" });
+      }
+
+      // Create new order
       const newOrder = new Order({
         user: session.metadata.userId,
         products: products.map((product) => ({
@@ -141,20 +161,40 @@ export const checkoutSucess = async (req, res) => {
           quantity: product.quantity,
           price: product.price,
         })),
-        totalAmount: session.amount_total / 100,
+        totalAmount: session.amount_total / 100, // Amount in dollars
         stripeSessionId: sessionId,
       });
 
       await newOrder.save();
 
-      res.status(200).json({
-        sucess: true,
-        message: "Payment sucessful, order created, and coupon deactivated",
-        orderId: newOrder._id,
+      await User.findByIdAndUpdate(session.metadata.userId, {
+        $set: { cartItems: [] }, // Empty the user's cart
       });
+
+      // Update product stock
+      await Promise.all(
+        products.map((product) =>
+          Product.findByIdAndUpdate(
+            product.id,
+            { $inc: { stock: -product.quantity } },
+            { new: true }
+          )
+        )
+      );
+
+      // Respond with success
+      res.status(200).json({
+        success: true,
+        message:
+          "Payment successful, order created, stock updated, and coupon deactivated",
+        orderId: newOrder._id,
+        totalAmount: newOrder.totalAmount,
+      });
+    } else {
+      return res.status(400).json({ error: "Payment was not successful" });
     }
   } catch (error) {
-    console.error("Error in checkout sucess :", error.message);
-    res.status(500).json({ messaage: "Internal server error" });
+    console.error("Error in checkout success:", error.message);
+    res.status(500).json({ message: "Internal server error" });
   }
 };

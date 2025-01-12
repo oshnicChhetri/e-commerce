@@ -4,13 +4,24 @@ import cloudinary from "../db/cloudinary.js";
 export const getProductsByCategory = async (req, res) => {
   try {
     const { category } = req.params;
-    const products = await Product.find({ category });
+    const products = await Product.find({ category, stock: { $gt: 0 } });
     res.status(200).json(products);
   } catch (error) {
-    console.error("Error in get products by category:", error.message);
+    console.log("Error in get products by category:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+export const getProductById = async (req,res) =>{
+  try {
+    const {id} = req.params;
+    const product = await Product.findById(id);
+    res.status(200).json(product)
+    } catch (error) {
+    console.log("Error in get product by id:", error.message);
+    res.status(500).json({error: "Internal Server Error"});
+  }
+}
 export const addProduct = async (req, res) => {
   try {
     const { productName, description, price, image, category, stock } =
@@ -56,7 +67,7 @@ export const addProduct = async (req, res) => {
 
 export const deleteProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.param.id);
+    const product = await Product.findById(req.params.id);
 
     if (!product) {
       return res.status(404).json({ message: "Product not found" });
@@ -91,3 +102,45 @@ export const getAllProducts = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
+
+export const updateStock = async (req, res) => {
+  try {
+    const {id} = req.params;
+      const { stock} = req.body;
+    const product = await Product.findById(id);
+    if(!product){
+      return res.status(404).json({message: "Product not found"})
+    }
+    product.stock = stock;
+  const result = await product.save();
+  res.status(200).json(result);
+  
+  } catch (error) {
+    console.log("Error in update stock ", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+export const getFilteredProducts = async (req, res) => { 
+  try {
+    const { query } = req.params;
+
+     if (!query) {
+       return res.status(400).json({ message: "Query parameter is required" });
+     }
+    const products = await Product.find({ productName: { $regex: query, $options: "i" } });
+
+    if (products.length === 0) {
+      return res.status(404).json({ message: "No products found" });
+    } else {
+      res.status(200).json(products);}
+
+
+    
+}catch (error) {
+    console.log("Error in get filtered products ", error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  } 
+
+}

@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
     },
     cartItems: [
       {
-        quantitty: {
+        quantity: {
           type: Number,
           default: 1,
         },
@@ -36,10 +36,33 @@ const userSchema = new mongoose.Schema(
       default: "customer",
     },
 
-    userPayPal: {
+    userAddress: {
+      city: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      street: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      houseNumber: {
+        type: String,
+        required: true,
+         // House numbers are typically positive
+      },
+      postalCode: {
+        type: String, // Allows for alphanumeric postal codes
+        required: true,
+        trim: true,
+      },
+      state: {
         type: String,
         trim: true,
-        
+        required: true,
+      },
+      
       
     },
   },
@@ -48,3 +71,10 @@ const userSchema = new mongoose.Schema(
 
 const User = mongoose.model("User", userSchema);
 export default User;
+
+
+
+
+
+
+
