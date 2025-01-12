@@ -5,11 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run clean && vite build",
-    "clean": "rm -rf dist",
-    "lint": "eslint . --ext .js,.jsx --max-warnings 0",
-    "preview": "vite preview",
-    "start": "concurrently \"npm run server --prefix ../backend\" \"npm run dev\""
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@stripe/stripe-js": "^5.4.0",
