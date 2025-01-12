@@ -7,11 +7,8 @@
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "prod": "npm install --production && npm run build --prefix frontend",
-    "client": "npm run build --prefix frontend",
-    "deploy": "npm run build && npm run start",
-    "heroku-postbuild": "npm run build --prefix frontend"
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+
   },
   "keywords": [],
   "author": "",
@@ -23,6 +20,7 @@
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "gopd": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.4",
     "nodemon": "^3.1.9",
