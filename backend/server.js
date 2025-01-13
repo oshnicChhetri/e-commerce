@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import connectToMongoDb from "./db/connectDatabase.js";
 import authRoutes from "./routes/auth.route.js";
 import productRoutes from "./routes/product.route.js";
@@ -44,6 +45,7 @@ app.use("/api/order", orderRoutes);
 // });
 =======
 app.use(express.static(path.join(__dirname, "/frontend/public")));
+app.use(cors());
 
 // Catch-all route to serve the frontend app
 app.get("*", (req, res) => {
