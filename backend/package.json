@@ -9,9 +9,9 @@
   "types" : "module",
 >>>>>>> ddcf52b810f6b40e6aad20b97b6dffdd69dbdd55
   "scripts": {
-    "server": "nodemon backend/server.js",
-    "start": "node backend/server.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    
 <<<<<<< HEAD
 
 =======
