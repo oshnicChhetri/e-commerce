@@ -35,11 +35,11 @@ app.use("/api/coupon", couponRoutes);
 app.use("/api/order", orderRoutes);
 
 // Serve the frontend (built with React or any other SPA framework)
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.use(express.static(path.join(__dirname, "/frontend/public")));
 
 // Catch-all route to serve the frontend app
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  res.sendFile(path.resolve(__dirname, "frontend", "public", "index.html"));
 });
 
 // Start the server
