@@ -10,7 +10,7 @@
 >>>>>>> ddcf52b810f6b40e6aad20b97b6dffdd69dbdd55
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js",
+    "start": "node server.js",µ
     
 <<<<<<< HEAD
 
