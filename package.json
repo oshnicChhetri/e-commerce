@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "E-commerce backend and frontend",
   "main": "index.js",
+<<<<<<< HEAD
   "types": "module",
+=======
+  "types" : "module",
+>>>>>>> ddcf52b810f6b40e6aad20b97b6dffdd69dbdd55
   "scripts": {
     "server": "nodemon backend/server.js",
     "start": "node backend/server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+<<<<<<< HEAD
 
+=======
+>>>>>>> ddcf52b810f6b40e6aad20b97b6dffdd69dbdd55
   },
   "keywords": [],
   "author": "",
@@ -24,7 +31,12 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.4",
     "nodemon": "^3.1.9",
+<<<<<<< HEAD
     "stripe": "^17.5.0"
+=======
+    "stripe": "^17.5.0",
+    "gopd": "^1.2.0"
+>>>>>>> ddcf52b810f6b40e6aad20b97b6dffdd69dbdd55
   },
   "devDependencies": {
     "@types/stripe": "^8.0.417"
