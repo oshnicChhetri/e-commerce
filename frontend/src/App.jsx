@@ -1,4 +1,4 @@
-import "./App.css";
+// import "./App.css";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom"
 import Navbar from "./components/Navbar.jsx";
 import AdminNavbar from "./components/AdminNavbar.jsx"
