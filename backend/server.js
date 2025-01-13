@@ -8,7 +8,7 @@ import paymentRoutes from "./routes/payment.route.js";
 import couponRoutes from "./routes/coupon.route.js";
 import cartRoutes from "./routes/cart.route.js";
 import orderRoutes from "./routes/order.route.js";
-
+import path from "path"
 import cookieParser from "cookie-parser";
 // import path from "path";
 
@@ -29,6 +29,7 @@ connectToMongoDb();
 // Define the port for the server
 const PORT = process.env.PORT || 8000;
 
+const __dirname = path.resolve();
 // API Routes
 app.use("/api/auth/", authRoutes);
 app.use("/api/products", productRoutes);
@@ -41,7 +42,11 @@ app.use("/api/order", orderRoutes);
 
 
 // Catch-all route to serve the frontend app
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
+  app.get("*", (req,res)=>{
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+  });
 
 // Start the server
 app.listen(PORT, () => {
