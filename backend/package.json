@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "E-commerce backend and frontend",
   "main": "index.js",
-
   "types": "module",
-
   "types" : "module",
-
   "scripts": {
     "dev": "nodemon server.js",
     "start": "node server.js"
@@ -28,13 +25,9 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.4",
     "nodemon": "^3.1.9",
-
-    
     "stripe": "^17.5.0"
-
     "stripe": "^17.5.0",
     "gopd": "^1.2.0"
-
   },
   "devDependencies": {
     "@types/stripe": "^8.0.417"
