@@ -8,7 +8,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "/backend/server.js"
+            "use": "/backend/server.js"
         }
     ],
     "routes": [
