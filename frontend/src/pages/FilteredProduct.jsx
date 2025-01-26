@@ -4,17 +4,26 @@ import useAddToCart from "../hooks/useAddToCart";
 import { FaSpinner } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import useFilteredProduct from "../hooks/useFilteredProduct";
+import { UseAuthContext } from "../../context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const FilteredProduct = () => {
     const { loading, addToCart } = useAddToCart();
     const { query } = useParams();
-    const { filteredProductLoading, filteredProduct } = useFilteredProduct({query}); // Use the query directly here
+    const { filteredProductLoading, filteredProduct } = useFilteredProduct({query});
+    const { authUser } = UseAuthContext();
 
     const handleAddToCart = async (productId) => {
-        await addToCart({ productId });
+        if (!authUser) {
+            toast.error("Please login to add products to cart.");
+            return; 
+        }else{
+            await addToCart(productId)
+            toast.success("Product added to cart.");
+        }
+        
     };
 
-    // Show loading state while fetching data
     if (filteredProductLoading) {
         return <div>Loading products...</div>;
     }
@@ -46,6 +55,7 @@ const FilteredProduct = () => {
                                 className="cartButtonContainer"
                                 onClick={() => !loading && handleAddToCart(product._id)} // Prevent click when loading
                             >
+                            
                                 {loading ? (
                                     <FaSpinner className="spinnerIcon" />
                                 ) : (

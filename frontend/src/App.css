@@ -30,6 +30,113 @@
     transform: rotate(360deg);
   }
 }
+
+.contact-page {
+  font-family: "Arial", sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.contact-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-page p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.contact-form {
+  margin: 2rem 0;
+}
+
+.contact-textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+.contact-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+}
+
+.send-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+.contact-info {
+  margin-top: 2rem;
+}
+
+.contact-info h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+.aboutusContainer {
+  width: 100%;
+  
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.aboutus{
+
+  color:black;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  font-size: 2.4rem;
+  font-weight: 100;
+  text-align: center;
+}
+
 .message {
   color: white;
 }
@@ -44,20 +151,22 @@ body {
 
 }
 .footer {
-  background-color: rgba(243, 161, 18, 0.856); /* Light background */
+  background-color: white; /* Light background */
   padding: 2rem 1rem; /* Add more padding for better spacing */
   text-align: center; /* Center-align the text */
   color: #333;
   font-family: "Arial", sans-serif;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+  width: 60%;
+  margin: auto;
   margin-top: 3rem;
-  width: 100%;
 }
 
 .footer h1 {
   font-size: 2rem; /* Responsive font size */
   margin-bottom: 1rem;
-  color: white;
+  color: black;
 }
 
 .footer p {
@@ -65,7 +174,7 @@ body {
   line-height: 1.8; /* Comfortable spacing for text */
   max-width: 80%; /* Use percentage for responsive width */
   margin: 0 auto;
-  color: white;
+  color: black;
 }
 
 .option {
@@ -1672,9 +1781,7 @@ a:hover {
     background-color: orange;
     z-index: 10;
   }
-  .footer {
-    margin-bottom: 4.5rem;
-  }
+  
 
   .formContainer {
     width: 90%; /* Make the form container smaller on mobile */
@@ -1891,6 +1998,38 @@ a:hover {
     font-size: 1.4rem; /* Smaller font size for the button */
     padding: 8px 12px; /* Reduce button padding */
   }
+
+   .footer {
+    width: 80%; /* Adjust width for tablets and small screens */
+    padding: 1.5rem 1rem; /* Reduce padding */
+  }
+
+  .footer h1 {
+    font-size: 1.8rem; /* Smaller font for smaller screens */
+  }
+
+  .footer p {
+    font-size: 0.9rem; /* Reduce paragraph font size */
+    max-width: 90%; /* Increase width for better fit */
+  }
+
+
+  .contact-page {
+    padding: 1rem;
+  }
+
+  .contact-page h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-page p {
+    font-size: 0.95rem;
+  }
+
+  .send-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1949,9 +2088,7 @@ a:hover {
     font-size: 1.2rem;
   }
 
-   .footer {
-    display: none;
-  }
+  
 
   .purchaseSucessContainer {
     width: 95%; /* Reduce width further */
@@ -2025,4 +2162,49 @@ a:hover {
     font-size: 1.3rem; /* Adjust button font size */
     padding: 6px 10px; /* Smaller padding for buttons */
   }
+
+  .footer {
+    width: 100%; /* Full width for mobile screens */
+    padding: 1rem; /* Compact padding */
+  }
+
+  .footer h1 {
+    font-size: 1.5rem; /* Further reduce header size */
+  }
+
+  .footer p {
+    font-size: 0.85rem; /* Smaller font for readability on small screens */
+  }
+
+.contact-page {
+    padding: 0.8rem;
+    margin: 1rem;
+  }
+
+  .contact-page h1 {
+    font-size: 1.6rem;
+  }
+
+  .contact-page p {
+    font-size: 0.9rem;
+  }
+
+  .contact-textarea {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .send-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.3rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+
 }

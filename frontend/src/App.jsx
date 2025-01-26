@@ -2,7 +2,8 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom"
 import Navbar from "./components/Navbar.jsx";
 import AdminNavbar from "./components/AdminNavbar.jsx"
-import AboutUs from "./components/AboutUs.jsx"
+// import AboutUs from "./components/AboutUs.jsx"
+import AboutUs from "./pages/AboutUs.jsx";
 import Home from "./pages/Home.jsx";
 import CategoryProduct from "./pages/CategoryProduct.jsx";
 import Signup from "./pages/Signup.jsx";
@@ -23,6 +24,7 @@ import PurchaseSucess from "./pages/PurchaseSucess.jsx";
 import UserOrder from "./pages/UserOrder.jsx";
 import UserDetails from "./pages/UserDetails.jsx";
 import ChangePassword from "./pages/ChangePassword.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
 
 
 
@@ -54,11 +56,13 @@ function App() {
 
 
       <Routes>
+        <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/" element={<Home />} />
         <Route path="/category/:category" element={<CategoryProduct />} />
         <Route path="/product/:id" element={<FullProductPage/>}/>
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={!authUser ? <Navigate to="/" />: <Cart/>}  />
         <Route path="/purchase-sucess/" element={!authUser ? <Navigate to="/" /> : <PurchaseSucess/>}  />
+        <Route path="/contactUs" element={!authUser ? <Navigate to="/" /> : <ContactUs />} />
         <Route path="/purchase-cancel"  />
         <Route path="/filteredProduct/:query" element={<FilteredProduct/>}/> 
         <Route path="/orders" element={!authUser ? <Navigate to ="/"/> : <UserOrder/>}/>
@@ -128,7 +132,7 @@ function App() {
           }
         />
       </Routes>
-      <AboutUs />
+    
     </>
   );
 }

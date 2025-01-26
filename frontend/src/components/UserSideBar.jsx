@@ -11,7 +11,7 @@ const UserSideBar = ({ isCollapsed, setIsCollapsed }) => {
     { name: "User Details", link: "/userDetails" },
     { name: "Change Password", link: "/changePassword" },
     { name: "Orders", link: "/orders" },
-    {name: "Customer Service : ecogreentech58@gmail.com"}
+    {name: "Contact Us", link: "/contactUs"}
   ];
 
   const {loading, logout} = useLogout();

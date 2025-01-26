@@ -2,13 +2,23 @@ import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import useAddToCart from "../hooks/useAddToCart";
 import { FaSpinner } from "react-icons/fa";
+import { UseAuthContext } from "../../context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const Product = ({ product }) => {
   const { loading, addToCart } = useAddToCart();
+ const { authUser } = UseAuthContext();
 
-  const handleAddToCart = async (productId) => {
-    await addToCart({ productId });
-  };
+    const handleAddToCart = async (productId) => {
+        if (!authUser) {
+            toast.error("Please login to add products to cart.");
+            return;
+        } else {
+            await addToCart(productId)
+            toast.success("Product added to cart.");
+        }
+
+    };
 
   return (
     <div key={product._id} className="categoryProduct">

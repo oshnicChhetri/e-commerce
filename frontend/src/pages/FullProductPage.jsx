@@ -4,6 +4,8 @@ import { IoCartOutline } from 'react-icons/io5';
 import useGetFullProduct from '../hooks/useGetFullProduct';
 import useAddToCart from "../hooks/useAddToCart";
 import { FaSpinner } from "react-icons/fa";
+import { UseAuthContext } from "../../context/AuthContext";
+import { toast } from "react-hot-toast";
 
 const FullProductPage = () => {
     const { id } = useParams();
@@ -13,11 +15,18 @@ const FullProductPage = () => {
 
 
 
+    const { authUser } = UseAuthContext();
+
     const handleAddToCart = async (productId) => {
+        if (!authUser) {
+            toast.error("Please login to add products to cart.");
+            return;
+        } else {
+            await addToCart(productId)
+            toast.success("Product added to cart.");
+        }
 
-        await addToCart({ productId })
-    }
-
+    };
 
 
     if (productloading) {
@@ -43,16 +52,19 @@ const FullProductPage = () => {
             <div className="fullProductPrice">{`${product.price || 0}£`}</div>
 
             
-                {
-                    loading ? (
-                        <FaSpinner className="spinnerIcon" />
-                    ) : (
-                        <div className="fullProductCartContainer" onClick={() => { handleAddToCart(product._id) }}>
-                        <IoCartOutline className='cartButton'  />
-                        </div>
-                    )
-
-                }
+            
+                    <div
+                        className="fullProductCartContainer"
+                            onClick={() => handleAddToCart(product._id)}
+                    >
+                        {loading ? (
+                            <FaSpinner className="spinnerIcon" />
+                        ) : (
+                            <IoCartOutline className="cartButton" />
+                        )}
+                        
+                    </div>
+                
            
         </div>
     );

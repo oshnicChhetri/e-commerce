@@ -23,6 +23,12 @@ const Navbar = ({ setIsCollapsed }) => {
 
       <SearchBar />
 
+      <Link to="/aboutus">
+        <div className='aboutusContainer'>
+          <p className='aboutus'>About Us</p>
+        </div>
+      </Link>
+
 
       <div className='iconContainer' >
         <Link to="/cart">
@@ -30,6 +36,8 @@ const Navbar = ({ setIsCollapsed }) => {
           <IoCartOutline className='cartIcon' />
         </div>
         </Link>
+        
+
         
 
         <div>

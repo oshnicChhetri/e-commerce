@@ -27,7 +27,7 @@ const UserOrder = () => {
                                     <span className="productDetailName">Product Name:</span> {product.name}
                                 </div>
                                 <div>
-                                    <span className="productDetailPrice">Price:</span> ${product.price}
+                                    <span className="productDetailPrice">Price:</span> £{product.price}
                                 </div>
                                 <div>
                                     <span className="productDetailQuantity">Quantity:</span> {product.quantity}
@@ -43,7 +43,8 @@ const UserOrder = () => {
 
                     {/* Total Amount */}
                     <p className="totalAmount">
-                        <span>Total Amount:</span> ${order.totalAmount}
+                        <span>Total Amount:</span> 
+                        £{order.totalAmount}
                     </p>
                 </div>
             ))}
